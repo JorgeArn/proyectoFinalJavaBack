@@ -16,8 +16,6 @@ public class Articulo {
     @Column
     private String nombre;
     @Column
-    private String categoria;
-    @Column
     private Double precio;
     @Column
     private String imagen;
@@ -26,10 +24,9 @@ public class Articulo {
     public Articulo() {
     }
 
-    public Articulo(Long id, String nombre, String categoria, Double precio, String imagen) {
+    public Articulo(Long id, String nombre, Double precio, String imagen) {
         this.id = id;
         this.nombre = nombre;
-        this.categoria = categoria;
         this.precio = precio;
         this.imagen = imagen;
     }
@@ -49,14 +46,6 @@ public class Articulo {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
     }
 
     public Double getPrecio() {
