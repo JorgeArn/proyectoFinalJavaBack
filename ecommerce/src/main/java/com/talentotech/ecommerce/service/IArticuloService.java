@@ -13,6 +13,9 @@ public interface IArticuloService {
     // Obtiene un artículo por su ID
     public Optional<Articulo> obtenerArticulo(Long id);
 
+    // Lista todos los artículos de una categoria
+    public List<Articulo> obtenerPorCategoria(String categoria);
+
     // Crea un artículo
     public Articulo saveArticulo(Articulo articulo);
 

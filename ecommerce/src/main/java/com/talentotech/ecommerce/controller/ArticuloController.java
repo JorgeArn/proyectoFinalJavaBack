@@ -41,6 +41,11 @@ public class ArticuloController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/{categoria}")
+    public List<Articulo> obtenerPorCategoria(@PathVariable String categoria) {
+        return iArticuloService.obtenerPorCategoria(categoria);
+    }
+
     @PostMapping("/crearArticulo")
     public Articulo crearArticulo(@RequestBody Articulo articulo) {
         return iArticuloService.saveArticulo(articulo);

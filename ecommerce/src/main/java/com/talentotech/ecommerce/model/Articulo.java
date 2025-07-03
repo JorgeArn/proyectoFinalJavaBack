@@ -18,16 +18,19 @@ public class Articulo {
     @Column
     private Double precio;
     @Column
+    private String categoria;
+    @Column
     private String imagen;
 
     // Constructores
     public Articulo() {
     }
 
-    public Articulo(Long id, String nombre, Double precio, String imagen) {
+    public Articulo(Long id, String nombre, Double precio, String categoria, String imagen) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
+        this.categoria = categoria;
         this.imagen = imagen;
     }
 
@@ -54,6 +57,14 @@ public class Articulo {
 
     public void setPrecio(Double precio) {
         this.precio = precio;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public String getImagen() {

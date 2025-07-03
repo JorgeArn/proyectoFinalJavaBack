@@ -29,6 +29,11 @@ public class ArticuloService implements IArticuloService{
     }
 
     @Override
+    public List<Articulo> obtenerPorCategoria(String categoria) {
+        return artRepository.findByCategoria(categoria);
+    }
+
+    @Override
     public Articulo saveArticulo(Articulo articulo) {
         return artRepository.save(articulo);
     }
