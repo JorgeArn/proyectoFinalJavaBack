@@ -1,7 +1,10 @@
 package com.talentotech.ecommerce.service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.talentotech.ecommerce.model.Articulo;
 
@@ -17,10 +20,10 @@ public interface IArticuloService {
     public List<Articulo> obtenerPorCategoria(String categoria);
 
     // Crea un artículo
-    public Articulo saveArticulo(Articulo articulo);
+    public Articulo crearArticulo(String nombre, Double precio, String categoria, MultipartFile imagen) throws IOException;
 
     // Edita un artículo mediante el id que se pasa por parámetro
-    public Articulo editarArticulo(Long id, Articulo articulo);
+    public Articulo editarArticulo(Long id, String nuevoNombre, Double nuevoPrecio, String nuevaCategoria, MultipartFile nuevaImagen) throws IOException;
 
     // Elimina un artículo
     public void eliminarArticulo(Long id);
