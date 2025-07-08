@@ -65,15 +65,15 @@ public class ArticuloService implements IArticuloService{
     }
 
     @Override
-    public Articulo editarArticulo(Long id, String nuevoNombre, Double nuevoPrecio, String nuevaCategoria, MultipartFile nuevaImagen) throws IOException {
+    public Articulo editarArticulo(Long id, String nombre, Double precio, String categoria, MultipartFile imagen) throws IOException {
         Articulo articulo = artRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("Artículo no encontrado"));
         
-        articulo.setNombre(nuevoNombre);
-        articulo.setPrecio(nuevoPrecio);
-        articulo.setCategoria(nuevaCategoria);
+        articulo.setNombre(nombre);
+        articulo.setPrecio(precio);
+        articulo.setCategoria(categoria);
 
-        if (nuevaImagen != null && !nuevaImagen.isEmpty()) {
+        if (imagen != null && !imagen.isEmpty()) {
             // Elimina imagen anterior si existe
             String imagenActual = articulo.getImagen();
             if (imagenActual != null && imagenActual.startsWith("http://localhost:8080/uploads/")) {
@@ -84,9 +84,9 @@ public class ArticuloService implements IArticuloService{
 
             // Guarda la nueva imagen
             Files.createDirectories(Paths.get("uploads"));
-            String nombreArchivoNuevo = UUID.randomUUID() + "_" + nuevaImagen.getOriginalFilename();
+            String nombreArchivoNuevo = UUID.randomUUID() + "_" + imagen.getOriginalFilename();
             Path rutaNueva = Paths.get("uploads").resolve(nombreArchivoNuevo);
-            Files.copy(nuevaImagen.getInputStream(), rutaNueva);
+            Files.copy(imagen.getInputStream(), rutaNueva);
 
             // Setea la nueva URL
             String url = "http://localhost:8080/uploads/" + nombreArchivoNuevo;

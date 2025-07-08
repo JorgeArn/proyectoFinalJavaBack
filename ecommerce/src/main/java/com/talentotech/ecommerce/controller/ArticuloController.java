@@ -61,12 +61,12 @@ public class ArticuloController {
     @PutMapping("/editarArticulo/{id}")
     public ResponseEntity<Articulo> editArticulo(
             @PathVariable Long id,
-            @RequestParam String nuevoNombre,
-            @RequestParam Double nuevoPrecio,
-            @RequestParam String nuevaCategoria,
-            @RequestParam(required = false) MultipartFile nuevaImagen) throws IOException {
+            @RequestParam String nombre,
+            @RequestParam Double precio,
+            @RequestParam String categoria,
+            @RequestParam(required = false) MultipartFile imagen) throws IOException {
         
-        return ResponseEntity.ok(iArticuloService.editarArticulo(id, nuevoNombre, nuevoPrecio, nuevaCategoria, nuevaImagen));
+        return ResponseEntity.ok(iArticuloService.editarArticulo(id, nombre, precio, categoria, imagen));
 
     }
 

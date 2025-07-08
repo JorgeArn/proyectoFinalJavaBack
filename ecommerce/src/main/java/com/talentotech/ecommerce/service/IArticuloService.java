@@ -23,7 +23,7 @@ public interface IArticuloService {
     public Articulo crearArticulo(String nombre, Double precio, String categoria, MultipartFile imagen) throws IOException;
 
     // Edita un artículo mediante el id que se pasa por parámetro
-    public Articulo editarArticulo(Long id, String nuevoNombre, Double nuevoPrecio, String nuevaCategoria, MultipartFile nuevaImagen) throws IOException;
+    public Articulo editarArticulo(Long id, String nombre, Double precio, String categoria, MultipartFile imagen) throws IOException;
 
     // Elimina un artículo
     public void eliminarArticulo(Long id);
